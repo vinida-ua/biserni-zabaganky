@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyzhnyk | Бісерні прикраси</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#f7d6ff,#ffd6e7);
+}
+
+/* HERO */
+.hero{
+height:100vh;
+background:url("hero.jpg") center/cover no-repeat;
+position:relative;
+overflow:hidden;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(90deg,rgba(0,0,0,.2),rgba(0,0,0,.6));
+}
+
+.hero-text{
+position:absolute;
+right:8%;
+top:50%;
+transform:translateY(-50%);
+color:white;
+text-align:right;
+animation:fadeIn 1.5s ease;
+z-index:2;
+}
+
+.hero-text h1{
+font-size:65px;
+margin:0;
+}
+
+.hero-text p{
+font-size:24px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+from{opacity:0; transform:translate(60px,-50%);}
+to{opacity:1; transform:translate(0,-50%);}
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+padding:60px;
+}
+
+.card{
+background:white;
+border-radius:18px;
+overflow:hidden;
+cursor:pointer;
+transition:0.4s;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.card h3{
+text-align:center;
+padding:15px;
+font-size:20px;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:40px;
+background:#2a0033;
+color:white;
+}
+
+/* LIGHTBOX */
+.lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.92);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999;
+}
+
+.lightbox img{
+max-width:75%;
+max-height:85%;
+border-radius:12px;
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
+
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:55px;
+color:white;
+cursor:pointer;
+user-select:none;
+}
+
+.left{left:25px;}
+.right{right:25px;}
+
+.price{
+position:absolute;
+right:30px;
+bottom:30px;
+color:white;
+font-size:22px;
+}
+
+/* ANIM */
+.lightbox img{
+animation:zoom .3s ease;
+}
+
+@keyframes zoom{
+from{transform:scale(.9); opacity:.5}
+to{transform:scale(1); opacity:1}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+<div class="hero-text">
+<h1>Nyzhnyk</h1>
+<p>Тут зібрана колекція моїх прикрас</p>
+</div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="grid">
+
+<div class="card" onclick="loadGallery('gerdany')">
+<img src="gerdany/1.jpg"><h3>Гердани</h3>
+</div>
+
+<div class="card" onclick="loadGallery('zhguty')">
+<img src="zhguty/1.jpg"><h3>Жгути</h3>
+</div>
+
+<div class="card" onclick="loadGallery('pavutynky')">
+<img src="pavutynky/1.jpg"><h3>Павутинки</h3>
+</div>
+
+<div class="card" onclick="loadGallery('sotuary')">
+<img src="sotuary/1.jpg"><h3>Сотуари</h3>
+</div>
+
+<div class="card" onclick="loadGallery('kolye')">
+<img src="kolye/1.jpg"><h3>Кольє</h3>
+</div>
+
+<div class="card" onclick="loadGallery('serezhky')">
+<img src="serezhky/1.jpg"><h3>Сережки</h3>
+</div>
+
+<div class="card" onclick="loadGallery('braslety')">
+<img src="braslety/1.jpg"><h3>Браслети</h3>
+</div>
+
+<div class="card" onclick="loadGallery('kotelyony')">
+<img src="kotelyony/1.jpg"><h3>Котильйони</h3>
+</div>
+
+<div class="card" onclick="loadGallery('selyanky')">
+<img src="selyanky/1.jpg"><h3>Селянки</h3>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+<h2>Nyzhnyk</h2>
+<p>Нижник Наталія Вікторівна</p>
+<p>099 659 02 73 | 067 308 27 39</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+
+<span class="close" onclick="closeLB()">✕</span>
+<span class="arrow left" onclick="prev()">←</span>
+<span class="arrow right" onclick="next()">→</span>
+
+<img id="lbImg">
+<div class="price">Ціна: 350 грн</div>
+
+</div>
+
+<script>
+
+const galleries = {
+gerdany:30,
+zhguty:40,
+pavutynky:10,
+sotuary:20,
+kolye:5,
+serezhky:5,
+braslety:30,
+kotelyony:10,
+selyanky:15
+};
+
+let current=[];
+let index=0;
+
+function loadGallery(name){
+current=[];
+for(let i=1;i<=galleries[name];i++){
+current.push(`${name}/${i}.jpg`);
+}
+index=0;
+document.getElementById("lightbox").style.display="flex";
+show();
+}
+
+function show(){
+document.getElementById("lbImg").src=current[index];
+}
+
+function next(){
+index=(index+1)%current.length;
+show();
+}
+
+function prev(){
+index=(index-1+current.length)%current.length;
+show();
+}
+
+function closeLB(){
+document.getElementById("lightbox").style.display="none";
+}
+
+/* SWIPE */
+let startX=0;
+
+document.getElementById("lightbox").addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX;
+});
+
+document.getElementById("lightbox").addEventListener("touchend",e=>{
+let endX=e.changedTouches[0].clientX;
+if(startX-endX>50) next();
+if(endX-startX>50) prev();
+});
+
+</script>
+
+</body>
+</html>
