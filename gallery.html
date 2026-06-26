@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Галерея</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="topBar">
+    <a class="back" href="index.html">← Назад</a>
+    <h2 id="title">Галерея</h2>
+</div>
+
+<div class="gallery" id="gallery"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+
+    <span class="close" onclick="closeLB()">✕</span>
+    <span class="arrow left" onclick="prev()">←</span>
+    <span class="arrow right" onclick="next()">→</span>
+
+    <img id="lightboxImg">
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
