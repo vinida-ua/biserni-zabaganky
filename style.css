@@ -52,8 +52,8 @@ a{
 /* GRID */
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    display:grid !important;
+    grid-template-columns:repeat(3, 1fr) !important;
     gap:30px;
     max-width:1200px;
     margin:auto;
@@ -283,4 +283,15 @@ padding:15px;
 
 }
 
+}
+@media(max-width:900px){
+    .grid{
+        grid-template-columns:repeat(2, 1fr);
+    }
+}
+
+@media(max-width:600px){
+    .grid{
+        grid-template-columns:repeat(1, 1fr);
+    }
 }
