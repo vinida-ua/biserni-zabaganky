@@ -1,390 +1,270 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    /* Основний шрифт для всього сайту (карток, футера тощо) */
-    font-family: 'Montserrat', sans-serif;
+    /* Основний шрифт для всього сайту */
+    font-family: 'Montserrat', sans-serif !important;
+    background-color: #fcfcfc;
 }
 
 /* Окремий красивий шрифт для головних заголовків */
 h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700; /* Робимо заголовки жирненькими */
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700;
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* HERO */
-
-/* Налаштування великого банера */
+/* HERO - ВЕЛИКИЙ БАНЕР */
 .hero {
-    /* Накладаємо напівпрозоре затемнення, щоб текст краще чиcontentтався, і додаємо фото */
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('banner.jpg');
-    
-    /* Робимо так, щоб фото розтягувалося на весь банер без деформацій */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     
-    /* Задаємо висоту банера (наприклад, 50% від висоти екрану користувача) */
-    min-height: 90vh; 
+    min-height: 75vh;
     
-    /* Центруємо текст по вертикалі та горизонталі за допомогою Flexbox */
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* Внутрішні відступи для мобільних екранів */
     padding: 20px;
-    box-sizing: border-box;
 }
 
-/* Налаштування тексту поверх фото */
 .heroText {
     text-align: center;
-    color: #ffffff; /* Робимо весь текст білим */
+    color: #ffffff;
 }
 
-.heroText h1 {
-    font-size: 3.5rem; /* Збільшуємо розмір головного напису */
-    margin: 0 0 10px 0;
-    font-weight: bold;
-    /* Додаємо м'яку тінь буквам, щоб вони не зливалися з деталями прикрас на фото */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); 
-}
-
-.heroText p {
-    font-size: 1.5rem; /* Робимо підзаголовок трохи більшим */
-    margin: 0;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-}
-
-/* GRID */
-
-.grid{
-    display:grid !important;
-    grid-template-columns:repeat(3, 1fr) !important;
-    gap:30px;
-    max-width:1200px;
-    margin:auto;
-    padding:70px 30px;
-}
-
-.card{
-
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
-
-    transition:.35s;
-}
-
-.card:hover{
-
-    transform:translateY(-10px) scale(1.02);
-
-}
-
-.card img{
-
-    width:100%;
-    height:260px;
-    object-fit:cover;
-}
-
-.card h2{
-
-    text-align:center;
-    padding:18px;
-    font-size:24px;
-}
-
-/* footer */
-
-footer{
-
-    margin-top:60px;
-    background:#2b002d;
-    color:white;
-
-    text-align:center;
-
-    padding:40px;
-}
-
-footer p{
-
-    margin-top:8px;
-}
-
-/* Gallery */
-
-.topBar{
-
-    background:#fff;
-    padding:25px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-}
-
-.back{
-
-    background:#d56af5;
-    color:white;
-    padding:12px 22px;
-    border-radius:8px;
-}
-
-.gallery{
-
-    max-width:1500px;
-
-    margin:auto;
-
-    padding:35px;
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-    gap:20px;
-}
-
-.gallery img{
-
-    width:100%;
-    aspect-ratio:1/1;
-
-    object-fit:cover;
-
-    border-radius:15px;
-
-    cursor:pointer;
-
-    transition:.3s;
-}
-
-.gallery img:hover{
-
-    transform:scale(1.03);
-}
-
-/* Lightbox */
-
-.lightbox{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.95);
-
-    display:none;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:999;
-}
-
-.lightbox img{
-
-    max-width:85%;
-    max-height:88%;
-
-    border-radius:15px;
-
-    animation:zoom .3s;
-}
-
-@keyframes zoom{
-
-from{
-
-transform:scale(.8);
-
-opacity:0;
-
-}
-
-to{
-
-transform:scale(1);
-
-opacity:1;
-
-}
-
-}
-
-.close{
-
-    position:absolute;
-
-    top:20px;
-
-    right:30px;
-
-    color:white;
-
-    font-size:45px;
-
-    cursor:pointer;
-}
-
-.arrow{
-
-    position:absolute;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    color:white;
-
-    font-size:65px;
-
-    cursor:pointer;
-
-    user-select:none;
-}
-
-.left{
-
-left:25px;
-
-}
-
-.right{
-
-right:25px;
-}
-
-@media(max-width:700px){
-
-.heroText h1{
-
-font-size:48px;
-
-}
-
-.heroText p{
-
-font-size:18px;
-
-}
-
-.arrow{
-
-font-size:45px;
-
-}
-
-.gallery{
-
-padding:15px;
-
-}
-
-}
-@media(max-width:900px){
-    .grid{
-        grid-template-columns:repeat(2, 1fr);
-    }
-}
-
-@media(max-width:600px){
-    .grid{
-        grid-template-columns:repeat(1, 1fr);
-    }
-}
-.item{
-    position:relative;
-}
-
-.priceTag{
-    position:absolute;
-    bottom:10px;
-    right:10px;
-
-    background:rgba(0,0,0,0.7);
-    color:white;
-
-    padding:6px 10px;
-    border-radius:8px;
-
-    font-size:14px;
-}
-/* 1. Створюємо саму анімацію (магію появи) */
+/* АНІМАЦІЇ ДЛЯ ТЕКСТУ В БАНЕРІ */
 @keyframes fadeInUp {
     from {
-        opacity: 0; /* Текст повністю прозорий */
-        transform: translateY(30px); /* Зміщений на 30 пікселів вниз */
+        opacity: 0;
+        transform: translateY(30px);
     }
     to {
-        opacity: 1; /* Текст стає видимим */
-        transform: translateY(0); /* Повертається на своє звичне місце */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Анімація для головного заголовка */
 .heroText h1 {
+    font-size: 3.5rem;
+    margin: 0 0 15px 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); 
     animation: fadeInUp 1s ease-out forwards;
 }
 
-/* Анімація для підзаголовка */
 .heroText p {
-    opacity: 0; /* Спочатку ховаємо, щоб не муляв око */
-    /* Запускаємо ту саму анімацію, але з затримкою в 0.5 секунди */
+    font-size: 1.5rem;
+    margin: 0;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    opacity: 0;
     animation: fadeInUp 1s ease-out 0.5s forwards;
 }
-/* ЦЕ ПРАВИЛО СПРАЦЮЄ ТІЛЬКИ НА СМАРТФОНАХ */
+
+/* GRID - СІТКА КАРТОК ДЛЯ ПК */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 30px;
+}
+
+.card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: .35s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.card h2 {
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    color: #2b002d;
+}
+
+/* ФУТЕР І ПОСИЛАННЯ В НЬОМУ */
+footer {
+    margin-top: 60px;
+    background: #2b002d;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+footer p {
+    margin-top: 8px;
+}
+
+footer p a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+/* ГАЛЕРЕЯ ДЛЯ ОКРЕМЫХ КАТЕГОРІЙ */
+.topBar {
+    background: #fff;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,.08);
+}
+
+.back {
+    background: #d56af5;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+}
+
+.gallery {
+    max-width: 1500px;
+    margin: auto;
+    padding: 35px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* LIGHTBOX */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.95);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.lightbox img {
+    max-width: 85%;
+    max-height: 88%;
+    border-radius: 15px;
+    animation: zoom .3s;
+}
+
+@keyframes zoom {
+    from { transform: scale(.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 65px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.left { left: 25px; }
+.right { right: 25px; }
+
+.item { position: relative; }
+
+.priceTag {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* 📱 АДАПТИВНІСТЬ ДЛЯ СМАРТФОНІВ (ЗАЛИШАЄМО 3 В РЯД, АЛЕ ВИПРАВЛЯЄМО ПРОПОРЦІЇ) */
 @media screen and (max-width: 767px) {
-    
-    /* Перелаштовуємо сітку, щоб було рівно 2 блоки в ряд */
+    .hero {
+        min-height: 60vh;
+    }
+
+    .heroText h1 {
+        font-size: 2.3rem; /* Шрифт заголовка під мобільні */
+    }
+
+    .heroText p {
+        font-size: 1.1rem;
+    }
+
+    /* Залишаємо строго 3 блоки в ряд */
     .grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки однакової ширини */
-        gap: 15px; /* Відступ між блоками (можна налаштувати більше/менше) */
-        padding: 15px; /* Внутрішні відступи від країв екрану телефону */
+        grid-template-columns: repeat(3, 1fr) !important; 
+        gap: 8px; /* Зменшуємо відступи між плашками, щоб виграти місце */
+        padding: 20px 8px; /* Менші відступи по боках екрану */
     }
 
-    /* Виправляємо розмір і пропорції карток */
     .card {
-        display: flex;
-        flex-direction: column;
-        width: 100% !important; /* Насильно робимо на всю ширину своєї колонки */
-        box-sizing: border-box;
+        border-radius: 10px; /* Акуратні маленькі заокруглення */
     }
 
-    /* Налаштовуємо фото, щоб воно більше не витягувалося вгору */
     .card img {
-        width: 100%;
-        height: auto; /* Фото зберігатиме свої правильні пропорції */
-        aspect-ratio: 1 / 1; /* Робить фото квадратним, як на ПК. Якщо на ПК вони прямокутні, можна прибрати цей рядок */
-        object-fit: cover; /* Щоб фото красиво заповнювало простір без деформацій */
+        height: auto;
+        aspect-ratio: 1 / 1; /* Робимо картинки ідеальними квадратами, щоб вони не витягувалися */
     }
 
-    /* Виправляємо текст, щоб він не обрізався */
     .card h2 {
-        font-size: 1.1rem; /* Трохи зменшуємо розмір шрифту під мобільні екрани */
-        word-wrap: break-word; /* Дозволяє переноInterсити довгі слова, якщо вони не поміщаються */
-        text-align: center;
-        padding: 5px;
-        margin: 5px 0 0 0;
+        font-size: 0.85rem; /* Зменшуємо розмір літер, щоб навіть довгі слова на кшталт "Котильйони" не обрізалися */
+        padding: 8px 3px;
+    }
+
+    .arrow {
+        font-size: 45px;
+    }
+
+    .gallery {
+        padding: 15px;
     }
 }
