@@ -7,7 +7,7 @@
 body {
     /* Основний шрифт для всього сайту */
     font-family: 'Montserrat', sans-serif !important;
-    background-color: #fcfcfc;
+    background-color: #fff5f6; /* Ніжний пудровий фон */
 }
 
 /* Окремий красивий шрифт для головних заголовків */
