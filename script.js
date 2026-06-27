@@ -13,7 +13,7 @@ const data = {
     pavutynky: 4,
     sotuary: 10,
     kolye: 10,
-    serezhky: 10,
+    serezhky: 6,
     braslety: 26,
     kotelyony: 10,
     selyanky: 8
