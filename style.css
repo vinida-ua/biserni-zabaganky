@@ -5,9 +5,15 @@
     font-family:Arial,sans-serif;
 }
 
-body{
-    background:#fdf5fb;
-    color:#333;
+body {
+    /* Основний шрифт для всього сайту (карток, футера тощо) */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Окремий красивий шрифт для головних заголовків */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700; /* Робимо заголовки жирненькими */
 }
 
 a{
