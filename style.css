@@ -17,36 +17,47 @@ a{
 
 /* HERO */
 
-.hero{
-    height:100vh;
-    background:url(hero.jpg) center center/cover;
-    position:relative;
+/* Налаштування великого банера */
+.hero {
+    /* Накладаємо напівпрозоре затемнення, щоб текст краще чиcontentтався, і додаємо фото */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('banner.jpg');
+    
+    /* Робимо так, щоб фото розтягувалося на весь банер без деформацій */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Задаємо висоту банера (наприклад, 50% від висоти екрану користувача) */
+    min-height: 50vh; 
+    
+    /* Центруємо текст по вертикалі та горизонталі за допомогою Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Внутрішні відступи для мобільних екранів */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to right,rgba(0,0,0,.2),rgba(0,0,0,.55));
+/* Налаштування тексту поверх фото */
+.heroText {
+    text-align: center;
+    color: #ffffff; /* Робимо весь текст білим */
 }
 
-.heroText{
-    position:absolute;
-    right:8%;
-    top:50%;
-    transform:translateY(-50%);
-    color:#fff;
-    text-align:right;
-    z-index:5;
+.heroText h1 {
+    font-size: 3.5rem; /* Збільшуємо розмір головного напису */
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    /* Додаємо м'яку тінь буквам, щоб вони не зливалися з деталями прикрас на фото */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); 
 }
 
-.heroText h1{
-    font-size:70px;
-    margin-bottom:15px;
-}
-
-.heroText p{
-    font-size:24px;
+.heroText p {
+    font-size: 1.5rem; /* Робимо підзаголовок трохи більшим */
+    margin: 0;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
 /* GRID */
