@@ -28,7 +28,7 @@ a{
     background-repeat: no-repeat;
     
     /* Задаємо висоту банера (наприклад, 50% від висоти екрану користувача) */
-    min-height: 50vh; 
+    min-height: 90vh; 
     
     /* Центруємо текст по вертикалі та горизонталі за допомогою Flexbox */
     display: flex;
