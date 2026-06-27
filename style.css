@@ -271,7 +271,7 @@ footer p a:hover {
 /* СТИЛІ ДЛЯ СЕКЦІЇ ВІДГУКІВ */
 .reviews-section {
     max-width: 1200px;
-    margin: 40px auto 20px auto;
+    margin: 60px auto 40px auto;
     padding: 0 30px;
     text-align: center;
 }
@@ -282,18 +282,19 @@ footer p a:hover {
     margin-bottom: 40px;
 }
 
-/* Контейнер, де плавають відгуки */
+/* Контейнер відгуків: робимо сіткою по 3 в ряд для ПК */
 .reviews-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки на ПК */
     gap: 30px;
     padding: 20px 0;
 }
 
 /* ЗАГАЛЬНІ СТИЛІ ДЛЯ ХМАРИНОК (ОВАЛІВ) */
 .review-bubble {
-    max-width: 340px;
+    width: 100%; /* Тепер овал адаптується під ширину колонки */
+    max-width: 380px;
+    margin: 0 auto;
     padding: 25px 30px;
     border-radius: 50px; /* Створює овальну форму хмаринки */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
@@ -320,25 +321,23 @@ footer p a:hover {
     align-self: flex-end;
 }
 
-/* РІЗНІ КОЛЬОРИ ДЛЯ КОЖНОЇ ХМАРИНКИ (щоб виділялися на рожевому фоні) */
-.bubble-1 {
+/* КОЛЬОРИ ДЛЯ ВСІХ 6 ХМАРИНОК (чергуються для гарного вигляду) */
+.bubble-1, .bubble-4 {
     background-color: #ffffff; /* Чистий білий */
 }
 
-.bubble-2 {
+.bubble-2, .bubble-5 {
     background-color: #fff0fa; /* Ніжно-бузковий */
 }
 
-.bubble-3 {
+.bubble-3, .bubble-6 {
     background-color: #f0f7ff; /* М'ятно-блакитний */
 }
 
 /* ─── МАГІЯ ПЛАВАННЯ (АНІМАЦІЯ) ─── */
-
-/* Налаштовуємо траєкторію плавання для кожної хмаринки окремо, щоб вони рухалися несинхронно */
 @keyframes floatX {
     0% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(1deg); } /* Амплітуда всього 10 пікселів */
+    50% { transform: translateY(-10px) rotate(1deg); }
     100% { transform: translateY(0px) rotate(0deg); }
 }
 
@@ -348,28 +347,49 @@ footer p a:hover {
     100% { transform: translateY(0px) rotate(0deg); }
 }
 
-/* Запускаємо анімації з різною тривалістю для природного ефекту */
+/* Запускаємо анімації з різним часом, щоб усі 6 хмаринок рухалися хаотично */
 .bubble-1 { animation: floatX 5s ease-in-out infinite; }
 .bubble-2 { animation: floatY 6s ease-in-out infinite; }
 .bubble-3 { animation: floatX 5.5s ease-in-out infinite; }
+.bubble-4 { animation: floatY 5.2s ease-in-out infinite; }
+.bubble-5 { animation: floatX 6.4s ease-in-out infinite; }
+.bubble-6 { animation: floatY 5.8s ease-in-out infinite; }
 
-/* ─── ЗУПИНКА РУХУ ПРИ НАВЕДЕННІ ТА ДОТИКУ ─── */
+/* ЗУПИНКА РУХУ ПРИ НАВЕДЕННІ ТА ДОТИКУ */
 .review-bubble:hover,
 .review-bubble:active {
-    animation-play-state: paused; /* Повністю зупиняє анімацію руху */
-    transform: scale(1.03) translateY(-5px); /* Трохи збільшує овал, роблячи акцент на читанні */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Тінь стає глибшою */
+    animation-play-state: paused;
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
-/* АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ */
+/* 📱 АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ (2 В РЯД І ЗМЕНШЕНІ ОВАЛИ) */
 @media screen and (max-width: 767px) {
     .reviews-title {
         font-size: 22px;
         margin-bottom: 20px;
     }
+
+    /* Перелаштовуємо контейнер на 2 колонки для смартфонів */
+    .reviews-container {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 12px; /* Менші відступи, щоб економити простір */
+        padding: 10px 0;
+    }
+
+    /* Зменшуємо розміри хмаринок, щоб вони красиво ставали по дві */
     .review-bubble {
-        max-width: 90%; /* На смартфонах овали стають ширшими для зручності читання */
-        border-radius: 35px;
-        padding: 20px;
+        padding: 15px 18px; /* Менші внутрішні відступи */
+        border-radius: 30px; /* Трохи гостріші кути, щоб овал тримав форму на маленькій ширині */
+    }
+
+    .review-text {
+        font-size: 0.8rem; /* Зменшуємо шрифт тексту відгуку */
+        line-height: 1.4;
+        margin-bottom: 5px;
+    }
+
+    .review-author {
+        font-size: 0.75rem; /* Зменшуємо шрифт автора */
     }
 }
