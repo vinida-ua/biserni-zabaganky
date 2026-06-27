@@ -28,7 +28,7 @@ a{
     background-repeat: no-repeat;
     
     /* Задаємо висоту банера (наприклад, 50% від висоти екрану користувача) */
-    min-height: 110vh; 
+    min-height: 90vh; 
     
     /* Центруємо текст по вертикалі та горизонталі за допомогою Flexbox */
     display: flex;
@@ -322,4 +322,27 @@ padding:15px;
     border-radius:8px;
 
     font-size:14px;
+}
+/* 1. Створюємо саму анімацію (магію появи) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0; /* Текст повністю прозорий */
+        transform: translateY(30px); /* Зміщений на 30 пікселів вниз */
+    }
+    to {
+        opacity: 1; /* Текст стає видимим */
+        transform: translateY(0); /* Повертається на своє звичне місце */
+    }
+}
+
+/* Анімація для головного заголовка */
+.heroText h1 {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Анімація для підзаголовка */
+.heroText p {
+    opacity: 0; /* Спочатку ховаємо, щоб не муляв око */
+    /* Запускаємо ту саму анімацію, але з затримкою в 0.5 секунди */
+    animation: fadeInUp 1s ease-out 0.5s forwards;
 }
