@@ -268,3 +268,108 @@ footer p a:hover {
         padding: 15px;
     }
 }
+/* СТИЛІ ДЛЯ СЕКЦІЇ ВІДГУКІВ */
+.reviews-section {
+    max-width: 1200px;
+    margin: 40px auto 20px auto;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.reviews-title {
+    color: #2b002d;
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+/* Контейнер, де плавають відгуки */
+.reviews-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* ЗАГАЛЬНІ СТИЛІ ДЛЯ ХМАРИНОК (ОВАЛІВ) */
+.review-bubble {
+    max-width: 340px;
+    padding: 25px 30px;
+    border-radius: 50px; /* Створює овальну форму хмаринки */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.review-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333333;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.review-author {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #2b002d;
+    align-self: flex-end;
+}
+
+/* РІЗНІ КОЛЬОРИ ДЛЯ КОЖНОЇ ХМАРИНКИ (щоб виділялися на рожевому фоні) */
+.bubble-1 {
+    background-color: #ffffff; /* Чистий білий */
+}
+
+.bubble-2 {
+    background-color: #fff0fa; /* Ніжно-бузковий */
+}
+
+.bubble-3 {
+    background-color: #f0f7ff; /* М'ятно-блакитний */
+}
+
+/* ─── МАГІЯ ПЛАВАННЯ (АНІМАЦІЯ) ─── */
+
+/* Налаштовуємо траєкторію плавання для кожної хмаринки окремо, щоб вони рухалися несинхронно */
+@keyframes floatX {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); } /* Амплітуда всього 10 пікселів */
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes floatY {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(-1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Запускаємо анімації з різною тривалістю для природного ефекту */
+.bubble-1 { animation: floatX 5s ease-in-out infinite; }
+.bubble-2 { animation: floatY 6s ease-in-out infinite; }
+.bubble-3 { animation: floatX 5.5s ease-in-out infinite; }
+
+/* ─── ЗУПИНКА РУХУ ПРИ НАВЕДЕННІ ТА ДОТИКУ ─── */
+.review-bubble:hover,
+.review-bubble:active {
+    animation-play-state: paused; /* Повністю зупиняє анімацію руху */
+    transform: scale(1.03) translateY(-5px); /* Трохи збільшує овал, роблячи акцент на читанні */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Тінь стає глибшою */
+}
+
+/* АДАПТИВНІСТЬ ДЛЯ МОБІЛЬНИХ */
+@media screen and (max-width: 767px) {
+    .reviews-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    .review-bubble {
+        max-width: 90%; /* На смартфонах овали стають ширшими для зручності читання */
+        border-radius: 35px;
+        padding: 20px;
+    }
+}
