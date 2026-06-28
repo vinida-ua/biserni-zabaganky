@@ -49,7 +49,7 @@ const database = {
         { file: "23.jpg", price: 2200 },
         { file: "24.jpg", price: 2300 },
         { file: "25.jpg", price: 3000 },
-        { file: "26.jpg", price: 1900 },
+        { file: "26.jpg", price: 2000 },
         { file: "27.jpg", price: 1900 },
         { file: "28.jpg", price: 2100 },
         { file: "29.jpg", price: 2100 },
@@ -59,15 +59,15 @@ const database = {
         { file: "33.jpg", price: 1100 }
     ],
     zhguty: [
-        { file: "01.jpg", price: 1500 }, { file: "02.jpg", price: 1300 }, { file: "03.jpg", price: 1600 },
-        { file: "04.jpg", price: 1500 }, { file: "05.jpg", price: 1250 }, { file: "06.jpg", price: 1500 },
-        { file: "07.jpg", price: 1500 }, { file: "08.jpg", price: 1400 }, { file: "09.jpg", price: 1500 },
+        { file: "01.jpg", price: 1500 }, { file: "02.jpg", price: 1300 }, { file: "03.jpg", price: 1500 },
+        { file: "04.jpg", price: 1400 }, { file: "05.jpg", price: 1250 }, { file: "06.jpg", price: 1400 },
+        { file: "07.jpg", price: 1400 }, { file: "08.jpg", price: 1350 }, { file: "09.jpg", price: 1500 },
         { file: "10.jpg", price: 1400 }, { file: "11.jpg", price: 1400 }, { file: "12.jpg", price: 1400 },
-        { file: "13.jpg", price: 1200 }, { file: "14.jpg", price: 1400 }, { file: "15.jpg", price: 1250 },
-        { file: "16.jpg", price: 1250 }, { file: "17.jpg", price: 1250 }, { file: "18.jpg", price: 1300 },
-        { file: "19.jpg", price: 1400 }, { file: "20.jpg", price: 1400 }, { file: "21.jpg", price: 1250 },
+        { file: "13.jpg", price: 1200 }, { file: "14.jpg", price: 1400 }, { file: "15.jpg", price: 1200 },
+        { file: "16.jpg", price: 1250 }, { file: "17.jpg", price: 1300 }, { file: "18.jpg", price: 1300 },
+        { file: "19.jpg", price: 1400 }, { file: "20.jpg", price: 1400 }, { file: "21.jpg", price: 1300 },
         { file: "22.jpg", price: 1250 }, { file: "23.jpg", price: 1250 }, { file: "24.jpg", price: 1500 },
-        { file: "25.jpg", price: 1500 }, { file: "26.jpg", price: 1500 }, { file: "27.jpg", price: 1400 },
+        { file: "25.jpg", price: 1500 }, { file: "26.jpg", price: 1400 }, { file: "27.jpg", price: 1400 },
         { file: "28.jpg", price: 1400 }, { file: "29.jpg", price: 1400 }, { file: "30.jpg", price: 1250 },
         { file: "31.jpg", price: 1400 }, { file: "32.jpg", price: 800 },  { file: "33.jpg", price: 800 },
         { file: "34.jpg", price: 800 },  { file: "35.jpg", price: 900 }
@@ -90,15 +90,16 @@ const database = {
     braslety: [
         { file: "01.jpg", price: 450 }, { file: "02.jpg", price: 350 }, { file: "03.jpg", price: 120 },
         { file: "04.jpg", price: 120 }, { file: "05.jpg", price: 200 }, { file: "06.jpg", price: 400 },
-        { file: "07.jpg", price: 450 }, { file: "08.jpg", price: 200 }, { file: "09.jpg", price: 400 },
+        { file: "07.jpg", price: 400 }, { file: "08.jpg", price: 200 }, { file: "09.jpg", price: 450 },
         { file: "10.jpg", price: 450 }, { file: "11.jpg", price: 450 }, { file: "12.jpg", price: 200 },
         { file: "13.jpg", price: 200 }, { file: "14.jpg", price: 200 }, { file: "15.jpg", price: 200 },
         { file: "16.jpg", price: 300 }, { file: "17.jpg", price: 300 }, { file: "18.jpg", price: 400 },
         { file: "19.jpg", price: 300 }, { file: "20.jpg", price: 400 }, { file: "21.jpg", price: 350 },
         { file: "22.jpg", price: 300 }, { file: "23.jpg", price: 300 }, { file: "24.jpg", price: 300 },
-        { file: "25.jpg", price: 400 }, { file: "26.jpg", price: 200 }
+        { file: "25.jpg", price: 450 }, { file: "26.jpg", price: 200 }
     ],
-    kotelyony: [],
+    kotelyony: [{ file: "01.jpg", price: 550 },{ file: "02.jpg", price: 700 },{ file: "03.jpg", price: 600 },
+               ],
     selyanky: [
         { file: "01.jpg", price: 4500 }, { file: "02.jpg", price: 1200 }, { file: "03.jpg", price: 2600 },
         { file: "04.jpg", price: 1500 }, { file: "05.jpg", price: 2500 }, { file: "06.jpg", price: 1400 },
